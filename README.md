@@ -53,6 +53,20 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 > 15. 在Vue实例销毁前执行,beforeDestroy()钩子方法
 > 16. Vue实例销毁了，然后执行destroyed()钩子方法
 
-当在created()钩子有需求要操作Dom节点的时候但是此时Dom节点还没有挂载好,那么可以在created()钩子中执行调用this.$nextTick()方法,这个方法虽然在created()钩子中调用，但是这个方法实际中会在mounted()钩子执行之后才会被调用，也就是当页面上的Dom已经被模板渲染之后才会被真正调用
+当在created()钩子有需求要操作Dom节点的时候但是此时Dom节点还没有挂载好,那么可以在created()钩子中执行调用this.$nextTick()方法,这个方法虽然在created()钩子中调用，但是这个方法实际中会在mounted()钩子执行之后才会被调用，也就是当页面上的Dom已经被模板渲染之后才会被真正触发调用这个方法,且this.$nextTick()只执行一次。
 
 代码见 /Vue_html/Vue_lifeCircle.html;
+
+### (2).Vue_components_lifeCircle
+> 1. 根组件的beforeCreate()钩子调用
+> 2. 根组件的created()钩子调用
+> 3. 根组件的beforeMount()钩子调用
+> 4. 子组件的beforeCreate()钩子调用
+> 5. 子组件的created()钩子调用
+> 6. 子组件的beforeMount()钩子调用
+> 7. 子组件的mounted()钩子调用
+> 8. 根组件的mounted()钩子调用
+> 9. 根组件的nextTick()方法调用执行
+> 10. 子组件的nextTick()方法调用执行
+
+代码见 /Vue_html/Vue_components_lifeCircle.html

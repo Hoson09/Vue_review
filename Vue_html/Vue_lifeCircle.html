@@ -30,7 +30,7 @@
                 // ajax 请求
                 // 直接操作dom节点
                 this.$nextTick(() => {
-                    console.log('当在created()钩子有需求操作Dom节点的时候,可以直接执行$nextTick()方法,这个方法虽然在created()钩子中调用，但是这个方法实际中会在mounted()钩子执行之后才会被调用，也就是当页面上的Dom已经被模板渲染之后才会被真正调用');
+                    console.log('当在created()钩子有需求操作Dom节点的时候,可以直接执行$nextTick()方法,这个方法虽然在created()钩子中调用，但是这个方法实际中会在mounted()钩子执行之后才会被调用，也就是当页面上的Dom已经被模板渲染之后才会被真正触发调用这个钩子方法,且只执行一次');
                     console.log(this.$refs.k);
                 });
             },
