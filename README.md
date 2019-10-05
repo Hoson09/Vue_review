@@ -98,3 +98,6 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 24. 构建单文件中，省略文件名的方法 在webpack中进行配置。
 25. vue-Loader 单文件组件规范。 父组件影响子组件的方式：在css文件中，使用 父组件的类选择器 >>> 子组件的类选择器; 在scss文件中使用 父组件 /deep/ 子组件
 26. vue-Loader 是啥？？
+27. 虚拟dom批量处理
+28. v-modal组件话处理
+29. nextTick()??
