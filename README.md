@@ -71,7 +71,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 代码见 /Vue_html/Vue_components_lifeCircle.html
 
-### Vue过点的知识点：
+### Vue的细碎知识点：
 1. 依赖：es6 webpack git 
 2. vue: vue-loader?? vue,vuex,vue-router,vue-cli
 3. vue: 自定义指令。。。要会简单使用自定义指令。Vue.directive('sss',{});
