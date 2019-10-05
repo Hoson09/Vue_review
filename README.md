@@ -70,3 +70,31 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 > 10. 子组件的nextTick()方法调用执行
 
 代码见 /Vue_html/Vue_components_lifeCircle.html
+
+### Vue过点的知识点：
+1. 依赖：es6 webpack git 
+2. vue: vue-loader?? vue,vuex,vue-router,vue-cli
+3. vue: 自定义指令。。。要会简单使用自定义指令。Vue.directive('sss',{});
+4. v-if 和 v-show的区别:是否生成到dom树。 应用场景:1.权限上应用v-if 2.无关紧要的使用v-show，提升性能。
+5. 回答问题的方式，1.分析需求。2.回答问题。3.回答应用场景。
+6. v-html是啥？？ 字符实体？？ &copy;就是一种字符实体。 enocde
+7. v-for key值必须独一无二的存在。与v-if连用的时候，v-if的优先级弱于v-for。可以遍历数组，对象，也可以遍历一个数字，v-for="item in 10" 。
+8. data中数组的相应双向绑定的方法 支持数组整体赋值。
+9. 过滤器，可以写一些全局过滤器，全局都可以进行使用。 如果有些方法你看不懂，要先考虑是否是自定义的全局方法。
+10. 虚拟的diff方法,操作一次，执行所有。数据更新完成后才会执行$nextTick()。虚拟dom的优化。***$nextTick()在promise().then()的最后执行。
+11. props 如果传递一个props未声明的属性，这个属性会落到组件的根元素上去。
+12. 事件的修饰符 stop prevent self  v-modal的修饰符 number  trim 
+13. 模块实例的管理？？导入的模块实例都是单例的！！！！在一个js脚本中生成一个的模块实例，然后在项目中所有的地方import导入的实例都是同一个实例。
+14. this七种指向 借用调用 call apply 函数调用 方法调用 构造函数调用 （bind(this指向第一个参数) 返回一个新函数。与call,apply区别是bind不会执行函数，但是会返回一个新函数，但是会把this指向给bind的第一个参数。let k = x.bind(第一个参数);k();而call和apply只会返回最后的结果。） 箭头函数.
+15. 双向绑定的原理 v-modal  核心原理是发布订阅模式，实质就是改写Object.defineProperty()方法。在vue中的具体实现是,Vue官网的响应式原理。新声明的属性值是不受监听的，如果使用Vue.set(obj,'k',val)方法就可以接受Vue监听。
+16. v-modal & 组件 ：实现①value属性和②@input事件。
+17. vue-router: 嵌套路由定义children和使用route-view标签。<router-link></router-link>==<a></a>。路由守卫：beforeEach()钩子方法。获取路由数据 meta,params,query 与this.$router结合使用。动态添加路由。跳转 this.$router.go()/push();<router-link to=''></router-link>。
+18. compute 计算属性也是双向绑定的。watch 是单方面监听不严格算双向绑定
+19. mutation 同步 action 异步。
+20. Vuex的模块化处理; 监听Vuex所有的变化 使用subscribe方法;Vuex的持久化处理插件 ;
+21. Vue-CLI vue create '项目名' 可以创建一个项目 这个命令和 vue ui 效果一样。只是vue ui是形成可视化界面，而vue create是在终端进行相关配置形成相关的项目工程文件。
+22. VUE_APP_ENV 环境变量的配置？
+23. vue引入公共样式的方法？
+24. 构建单文件中，省略文件名的方法 在webpack中进行配置。
+25. vue-Loader 单文件组件规范。 父组件影响子组件的方式：在css文件中，使用 父组件的类选择器 >>> 子组件的类选择器; 在scss文件中使用 父组件 /deep/ 子组件
+26. vue-Loader 是啥？？
