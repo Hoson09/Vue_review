@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.bootcss.com/vue/2.6.10/vue.js"></script>
+    <title>Vue_components_lifeCircle</title>
+</head>
+
+<body>
+    <div id="app">
+        <kk></kk>
+        <mm></mm>
+    </div>
+    <script>
+        //全局组件
+        Vue.component('kk', {
+            template: `<div>kk全局组件子组件</div>`,
+            beforeCreate() {
+                console.log('4.kk子组件的beforeCreate()钩子调用');
+            },
+            created() {
+                console.log('5.kk子组件的created()钩子调用');
+                this.$nextTick(() => {
+                    console.log('10.kk子组件的nextTick()方法调用执行');
+                });
+            },
+            beforeMount() {
+                console.log('6.kk子组件的beforeMount()钩子调用');
+            },
+            mounted() {
+                console.log('7.kk子组件的mounted()钩子调用');
+            }
+        });
+        //局部组件
+        let mm = {
+            template: `<div>mm局部组件子组件</div>`,
+            beforeCreate() {
+                console.log('4.mm子组件的beforeCreate()钩子调用');
+            },
+            created() {
+                console.log('5.mm子组件的created()钩子调用');
+                this.$nextTick(() => {
+                    console.log('10.mm子组件的nextTick()方法调用执行');
+                });
+            },
+            beforeMount() {
+                console.log('6.mm子组件的beforeMount()钩子调用');
+            },
+            mounted() {
+                console.log('7.mm子组件的mounted()钩子调用');
+            }
+        };
+        let vm = new Vue({
+            el: '#app',
+            data: {},
+            components: {
+                mm
+            },
+            beforeCreate() {
+                console.log('1.根组件的beforeCreate()钩子调用');
+            },
+            created() {
+                console.log('2.根组件的created()钩子调用');
+                this.$nextTick(() => {
+                    console.log('9.根组件的nextTick()方法调用执行');
+                });
+            },
+            beforeMount() {
+                console.log('3.根组件的beforeMount()钩子调用');
+            },
+            mounted() {
+                console.log('8.根组件的mounted()钩子调用');
+            }
+        });
+    </script>
+</body>
+
+</html>
