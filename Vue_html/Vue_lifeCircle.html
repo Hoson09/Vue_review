@@ -11,7 +11,7 @@
 
 <body>
     <div id="app">
-        <h1>{{num}}</h1>
+        <h1 ref="k">{{num}}</h1>
     </div>
     <script>
         let vm = new Vue({ //1.创建Vue实例,然后开始解析构造的参数
@@ -27,6 +27,12 @@
                 console.log('4.事件初始化完成，可以进行this调用');
                 console.log('5.然后调用created()钩子，在调用created()的时候，vue实例的中的data和methods方法都已经初始化完毕，可以进行this调用了,在整个页面形成过程中,created()钩子只会执行一次')
                 console.log('正是因为这个特性，所以我们一般在created()方法中进行ajax请求一些数据和调用一些事件和方法，给data参数的数据赋值');
+                // ajax 请求
+                // 直接操作dom节点
+                this.$nextTick(() => {
+                    console.log('当在created()钩子有需求操作Dom节点的时候,可以直接执行$nextTick()方法,这个方法虽然在created()钩子中调用，但是这个方法实际中会在mounted()钩子执行之后才会被调用，也就是当页面上的Dom已经被模板渲染之后才会被真正调用');
+                    console.log(this.$refs.k);
+                });
             },
             beforeMount() {
                 console.log('6.然后查找vue实例是否存在el参数对应的Dom对象，如果没有就查找vue实例方法vm.$mount()上是否有Dom对象');
