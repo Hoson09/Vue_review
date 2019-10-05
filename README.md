@@ -35,7 +35,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 # 1.Vue_生命周期
 
-## 1.Vue_单个实例的生命周期
+### (1).Vue_单个实例的生命周期
 > 1. 创建Vue实例,然后开始解析构造的参数
 > 2.  data等一系列参数还没有初始化完成之前，先执行beforeCreate()钩子
 > 3. data参数初始化完成,开始监控data参数中数据的变化
@@ -52,3 +52,5 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 > 14. Dom元素更新之后，调用updated()钩子方法
 > 15. 在Vue实例销毁前执行,beforeDestroy()钩子方法
 > 16. Vue实例销毁了，然后执行destroyed()钩子方法
+
+代码见 /Vue_html/Vue_lifeCircle.html;
