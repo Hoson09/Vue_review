@@ -76,7 +76,8 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 2. vue: vue-loader vue,vuex,vue-router,vue-cli 
    #### (1)Vue Loader 是一个 webpack 的 loader，它允许你以一种名为单文件组件 (SFCs)的格式撰写 Vue 组件。
   例子如下：
-   ```html
+
+```html
     <template>
       <div class="example">{{ msg }}</div>
     </template>
@@ -96,7 +97,8 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
       color: red;
     }
     </style>
-    ```
+```
+
     Vue Loader 还提供了很多酷炫的特性：
      * 允许为 Vue 组件的每个部分使用其它的 webpack loader，例如在 <style> 的部分使用 Sass 
      * 允许在一个 .vue 文件中使用自定义块，并对其运用自定义的 loader 链；
