@@ -74,39 +74,39 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 ### Vue的细碎知识点：
 1. 依赖：es6 webpack git 
 2. vue: vue-loader vue,vuex,vue-router,vue-cli 
- (1)Vue Loader 是一个 webpack 的 loader，它允许你以一种名为单文件组件 (SFCs)的格式撰写 Vue 组件。
- 例子如下：
- ```html
-<template>
-  <div class="example">{{ msg }}</div>
-</template>
+   #### (1)Vue Loader 是一个 webpack 的 loader，它允许你以一种名为单文件组件 (SFCs)的格式撰写 Vue 组件。
+  例子如下：
+   ```html
+    <template>
+      <div class="example">{{ msg }}</div>
+    </template>
 
-<script>
-export default {
-  data () {
-    return {
-      msg: 'Hello world!'
+    <script>
+    export default {
+      data () {
+        return {
+          msg: 'Hello world!'
+      }
     }
-  }
-}
-</script>
+   }
+   </script>
 
-<style>
-.example {
-  color: red;
-}
-</style>
- ```
- Vue Loader 还提供了很多酷炫的特性：
- * 允许为 Vue 组件的每个部分使用其它的 webpack loader，例如在 <style> 的部分使用 Sass 
- * 允许在一个 .vue 文件中使用自定义块，并对其运用自定义的 loader 链；
- * 使用 webpack loader 将 <style> 和 <template> 中引用的资源当作模块依赖来处理；
- * 为每个组件模拟出 scoped CSS；
- * 在开发过程中使用热重载来保持状态。
- (2)Vue 是一套用于构建用户界面的渐进式框架,被设计为可以自底向上逐层应用
- (3) Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。Vuex 应用的核心就是 store 在整个项目中是单一数据源即单一的全局的变量,其中主要分为state(数据),getters(state派生出来的计算属性，可以对state进行预处理),Mutation(突变,可以通过突变给state进行赋值),Action(与Mutation相似，不过Action 提交的是 mutation，而不是直接变更状态，包含任意异步操作。),Module(模块化,在每个组件或者Vue页面中对Vuex进行模块化处理)。
- (4) vue-router：Vue.js 官方的路由管理器,用 Vue.js + Vue Router 创建单页应用,只需要将组件 (components) 映射到路由 (routes)，然后告诉 Vue Router 在哪里渲染。
- (5) CLI：是全局安装的一个npm包,里面包括Vue的命令行。可以是用vue ui可视化安装一个vue项目，也可以使用vue create在终端创建一个vue项目。
+   <style>
+    .example {
+      color: red;
+    }
+    </style>
+    ```
+    Vue Loader 还提供了很多酷炫的特性：
+     * 允许为 Vue 组件的每个部分使用其它的 webpack loader，例如在 <style> 的部分使用 Sass 
+     * 允许在一个 .vue 文件中使用自定义块，并对其运用自定义的 loader 链；
+     * 使用 webpack loader 将 <style> 和 <template> 中引用的资源当作模块依赖来处理；
+     * 为每个组件模拟出 scoped CSS；
+     * 在开发过程中使用热重载来保持状态。
+   #### (2)Vue 是一套用于构建用户界面的渐进式框架,被设计为可以自底向上逐层应用
+   #### (3)Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。Vuex 应用的核心就是 store 在整个项目中是单一数据源即单一的全局的变量,其中主要分为state(数据),getters(state派生出来的计算属性，可以对state进行预处理),Mutation(突变,可以通过突变给state进行赋值),Action(与Mutation相似，不过Action 提交的是 mutation，而不是直接变更状态，包含任意异步操作。),Module(模块化,在每个组件或者Vue页面中对Vuex进行模块化处理)。
+   #### (4)vue-router：Vue.js 官方的路由管理器,用 Vue.js + Vue Router 创建单页应用,只需要将组件 (components) 映射到路由 (routes)，然后告诉 Vue Router 在哪里渲染。
+   #### (5)CLI：是全局安装的一个npm包,里面包括Vue的命令行。可以是用vue ui可视化安装一个vue项目，也可以使用vue create在终端创建一个vue项目。
 
 3. vue: 自定义指令。。。要会简单使用自定义指令。Vue.directive('sss',{});
 4. v-if 和 v-show的区别:是否生成到dom树。 应用场景:1.权限上应用v-if 2.无关紧要的使用v-show，可以提升性能。
