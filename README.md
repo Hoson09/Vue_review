@@ -127,8 +127,9 @@ v-html:是标签的一个vue指令，可以更新Dom元素中的 innerHTML，内
   (1)核心原理是发布订阅模式，实质就是改写Object.defineProperty()方法。
   (2)在vue中的具体实现是,Vue官网的响应式原理,。
   (3)data对象中新声明的属性值是不受监听的，如果使用Vue.set(obj,'k',val)方法才可以接受Vue监听。
+  > 简单来说双向绑定的原理就是依赖Object.defineProperty('k',age,{set(){},get(){}))方法，在set方法中设置一个函数调用，在给变量赋值之前调用这个给dom元素赋值的函数，类似这样形式的发布订阅模式。在vue中的具体实现就是，Vue实例初始化data等属性的时候，遍历data属性所有数据，并把这些的数据的set/get方法进行改造，并且对这些数据进行追踪监听。然后在template模板进行编译结合的时候，也进行类似的改造和监听，然后才把这样改造过的数据和模板结合编译起来与html相应的dom进行替换。因此不管是data上的数据还是模板上呈现出来的数据都是出于被监听状态，当触发他们set方法的时候,就会产生不论修改Dom中的template模板上的数据还是改变修改vue实例上data的数据，两者都会让两者同时修改的现象，这就是双向绑定的原理。
 16. v-modal & 组件 ：实现①value属性和②@input事件。
-17. vue-router: 嵌套路由定义children和使用route-view标签。<router-link></router-link>==<a></a>。路由守卫：beforeEach()钩子方法。获取路由数据 meta,params,query 与this.$router结合使用。动态添加路由。跳转 this.$router.go()/push();<router-link to=''></router-link>。
+17. vue-router: 嵌套路由定义children和使用route-view标签。'<router-link></router-link>'=='<a></a>'。路由守卫：beforeEach()钩子方法。获取路由数据 meta,params,query 与this.$router结合使用。动态添加路由。跳转 this.$router.go()/push();'<router-link to=''></router-link>'。
 18. compute 计算属性也是双向绑定的。watch 是单方面监听不严格算双向绑定
 19. mutation 同步 action 异步。
 20. Vuex的模块化处理; 监听Vuex所有的变化 使用subscribe方法;Vuex的持久化处理插件 ;
@@ -142,4 +143,4 @@ v-html:是标签的一个vue指令，可以更新Dom元素中的 innerHTML，内
 26. 父组件影响子组件的方式：在css文件中，使用 父组件的类选择器 >>> 子组件的类选择器; 在scss文件中使用 父组件 /deep/ 子组件
 27. 虚拟dom批量处理？？
 28. v-modal组件话处理
-29. nextTick()??
+29. nextTick()?? 这个方法是是一个异步的方法，在Dom元素都挂载替换到html之后才会被触发。
